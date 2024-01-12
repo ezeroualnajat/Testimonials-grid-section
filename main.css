@@ -11,6 +11,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 1.5rem;
 }
 /* [ END ] Main Rules */
 /* [ START ] Main Section STYLE */
@@ -23,6 +24,24 @@ main {
 	gap: 1.5rem 1.875rem;
 	grid-template-columns: repeat(4, 15.938rem);
 	grid-template-rows: repeat(2, auto);
+	overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+	main {
+		grid-template-areas:
+			'first-article'
+			'second-article'
+			'third-article'
+			'fourth-article'
+			'last-article';
+		column-gap: 0;
+		grid-template-columns: 327px;
+	}
+}
+@media screen and (max-width: 768px) {
+	main > article {
+		padding: 1.625rem 2rem 2rem !important;
+	}
 }
 main > article {
 	box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
@@ -61,6 +80,16 @@ main > article h3 {
 	font-weight: 600;
 	margin-bottom: 1.2em;
 }
+@media screen and (max-width: 768px) {
+	main article:first-of-type h3 {
+		margin-bottom: 40px !important;
+	}
+}
+@media screen and (max-width: 768px) {
+	main > article:not(:first-of-type) h3 {
+		margin-bottom: 1rem;
+	}
+}
 main > article p {
 	color: #ffffff;
 	font-size: 0.813rem;
@@ -77,8 +106,18 @@ main article:first-of-type {
 	color: #ffffff;
 	padding-bottom: 2rem;
 }
+@media screen and (max-width: 768px) {
+	main article:first-of-type {
+		background-position: right 1.5rem top;
+	}
+}
 main article:first-of-type > p {
 	color: #cfcfcf;
+}
+@media screen and (max-width: 768px) {
+	main article:first-of-type > p {
+		max-width: 15.438rem;
+	}
 }
 main article:first-of-type h3,
 main article:nth-of-type(2) h3 {
